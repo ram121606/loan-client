@@ -1,0 +1,23 @@
+<header><button (click)="back()">Back</button></header>
+<body>
+    <form [formGroup]="kyc" (submit)="onSubmit()">
+        <mat-card class="card">
+            <mat-form-field appearance="outline">
+                <mat-label>Aadhar Number</mat-label>
+                <input matInput type="text" [(ngModel)]="aadhar" formControlName="aadhar" pattern="[0-9]{12}" required>
+                <mat-error *ngIf="!kyc.controls.aadhar.valid && kyc.controls.aadhar.touched">Invalid Aadhar Number</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input matInput type="tel" pattern="[6-9][0-9]{9}" [(ngModel)]="phone" formControlName="phone" required>
+                <mat-error *ngIf="!kyc.controls.phone.valid && kyc.controls.phone.touched">Invalid Phone Number</mat-error>
+            </mat-form-field>
+            <mat-card-actions>
+                <button type="submit">Verify</button>
+            </mat-card-actions>
+        </mat-card><br><br>
+        KYC Number : {{id}}
+    </form>
+</body>
+
+

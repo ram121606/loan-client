@@ -1,0 +1,24 @@
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    width: 30%;
+    background-color: aliceblue;
+    align-items: center;
+    padding: 2%;
+}
+header{
+    display: flex;
+    justify-content: end;
+}
+
+
+button{
+    background-color: black;
+    color: aliceblue;
+}

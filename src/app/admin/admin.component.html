@@ -1,0 +1,26 @@
+<header><a href="/"><button>Logout</button></a></header>
+<form (ngSubmit)="onSubmit()" [formGroup]="admin">
+    <mat-card class="card">
+        <mat-card-header>
+            <h1>Admin Login</h1>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" [(ngModel)]="email" pattern="([a-zA-Z0-9]+)@admin" formControlName="email" required>
+                <mat-error *ngIf="!admin.controls.email.valid && admin.controls.email.touched">Invalid Email</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide? 'password' : 'text'" [(ngModel)]="password" formControlName="password" required>
+                <mat-icon matSuffix (click) = "hide = !hide">
+                    <mat-icon>{{hide? 'visibility_off' : 'visibility'}}</mat-icon>
+                </mat-icon>
+                <mat-error *ngIf="!admin.controls.password.valid && admin.controls.password.touched">Invalid Password</mat-error>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button [disabled]="!admin.valid" type="submit">Submit</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

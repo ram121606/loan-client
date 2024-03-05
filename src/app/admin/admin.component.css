@@ -1,0 +1,31 @@
+.card{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+}
+mat-form-field{
+    width: 90%;
+}
+a{
+    text-decoration: none;
+}
+header{
+    display: flex;
+    justify-content: flex-end;
+}
+
+button{
+    background-color: black;
+    color: aliceblue;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+

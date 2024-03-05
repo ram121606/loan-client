@@ -1,0 +1,31 @@
+
+<header><a href="/"><button>Logout</button></a></header>
+<div *ngIf="admin">
+    User Request Details:
+    <ul *ngIf="details">
+        <li *ngFor="let items of data"><pre>TicketId:{{items.ticketId}}    Name:{{items.name}}    Bank:{{items.bank}}</pre><button (click)="accept(items.ticketId)">Accept</button><button (click)="reject(items.ticketId)">Reject</button></li>
+    </ul>
+</div>
+<div *ngIf="!admin">
+    <header>
+        <p>Dashboard</p>
+        <a href="/kyc/{{username}}">KYC Verification</a>
+        <a href="/loan">Loan Details</a>
+        <p>Welcome {{username}}!</p>
+    </header><br><br>
+    <form (ngSubmit)="onSubmit()" [formGroup]="userDashboard">
+        <mat-card>
+            <mat-card-header>Ticket Status</mat-card-header><br>
+            <mat-form-field appearance="outline">
+                <mat-label>Enter your Ticket ID</mat-label>
+                <input matInput type="text" [(ngModel)]="ticketId" formControlName="ticketId" required>
+                <mat-error *ngIf="!userDashboard.controls.ticketId.valid && userDashboard.controls.ticketId.touched">Invalid Input</mat-error>
+            </mat-form-field>
+            <mat-card-actions>
+                <button type="submit">Check Status</button>
+            </mat-card-actions>
+        </mat-card>
+    </form><br>
+    <p class="status">Status : {{status}}</p>
+</div>
+
